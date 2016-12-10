@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 /**
  * Created by caoych on 2016/12/10.
  */
+
 @Configuration
 public class ThmleafExtension {
     @Autowired

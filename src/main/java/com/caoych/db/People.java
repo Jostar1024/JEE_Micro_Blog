@@ -1,5 +1,7 @@
 package com.caoych.db;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * Created by caoych on 2016/12/10.
  */
