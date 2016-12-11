@@ -1,6 +1,7 @@
 package com.caoych.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -19,5 +20,4 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/profile").setViewName("profile");
         registry.addViewController("/create_profile").setViewName("create_profile");
     }
-
 }

@@ -2,21 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Micro Blog de lingua</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Micro Blog de Lingua</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-old-ie-min.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-min.css"/>
+    <!--<![endif]-->
+
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/blog-old-ie.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/css/blog.css"/>
+    <!--<![endif]-->
 </head>
 <body>
     <!--<p th:text="'Hello, ' + ${tweets} + '!'"></p>-->
-    <div th:replace="fragments/sidebar :: sidebar" ></div>
-    <div>
-        <div th:each="tweet : ${tweets}">
-            <p th:text="${tweet.content}"></p>
-            <p th:text="${tweet.date}"></p>
-            <p th:text="${tweet.p}"></p>
-            <p th:each=" hashtag : ${tweet.hashTag}" th:remove="tag">
-                <a th:text="${hashtag}" th:href="'hashtag?hashtag='+${hashtag} "></a>
-            </p>
+    <div id="layout" class="pure-g">
+
+        <div th:replace="fragments/sidebar :: sidebar" ></div>
+        <div>
+            <div th:each="tweet : ${tweets}">
+                <p th:text="${tweet.content}"></p>
+                <p th:text="${tweet.date}"></p>
+                <p th:text="${tweet.p}"></p>
+                <p th:each=" hashtag : ${tweet.hashTag}" th:remove="tag">
+                    <a th:text="${hashtag}" th:href="'hashtag?hashtag='+${hashtag} "></a>
+                </p>
+            </div>
         </div>
+        <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
     </div>
-    <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+
 </body>
 </html>

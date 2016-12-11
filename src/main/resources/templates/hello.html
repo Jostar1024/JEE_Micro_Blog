@@ -6,8 +6,25 @@
 </head>
 <body>
     <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
+    <form>
+        <textarea>
+        </textarea>
+        <input type="submit" value="Say it !!"/>
+        <p>Say it on :
+            <button value="twitter"></button>
+        </p>
+
     </form>
+    <ul>
+        <li>
+            <a href="edit_profile.html"></a>
+        </li>
+        <li>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
+        </li>
+    </ul>
+
 </body>
 </html>
