@@ -6,6 +6,7 @@ import com.caoych.db.Tweets;
 import com.caoych.db.TweetsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,13 +24,10 @@ public class ProfileController {
     @Autowired
     private TweetsRepository tRepo;
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public String getPe(String firstName) {
+    @RequestMapping("/profile")
+    public String getPeople(@RequestParam(value = "firstName", defaultValue="") String firstName, Model model) {
         People people = pRepo.findByFirstName(firstName);
+        model.addAttribute("ones_profile", people);
         return "profile";
     }
-//    public String getPeople(@RequestParam(value = "firstName", defaultValue="") String firstName) {
-//        People people = pRepo.findByFirstName(firstName);
-//        return "profile";
-//    }
 }

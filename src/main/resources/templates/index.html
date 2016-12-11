@@ -39,7 +39,7 @@
 
                     <p class="post-meta">
                     <p th:text="${tweet.date}" th:remove="tag"></p>
-                     - By <a class="post-author" href="#" th:text="${tweet.people.firstName}+' '+${tweet.people.lastName}"></a> under
+                     - By <a class="post-author"  th:href="'profile?firstName='+${tweet.people.firstName}" th:text="${tweet.people.firstName}+' '+${tweet.people.lastName}"></a> under
                     <p th:each=" hashtag : ${tweet.hashTag}" th:remove="tag">
                         <a class="post-category post-category-js" th:text="'#'+${hashtag}" th:href="'hashtag?hashtag='+${hashtag} "></a>
                     </p>
