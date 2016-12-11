@@ -17,19 +17,44 @@ public class Tweets {
     public String[] hashTag;
     public String personId;
 
-    public People p;
+    public People people;
 
+    public Tweets() {}
     public Tweets(String content, String date, String[] hashTag, String personId) {
         this.content = content;
         this.date = date;
         this.hashTag = hashTag;
         this.personId = personId;
     }
+    public String getContent() {
+        return this.content;
+    }
+    public void setContent(String content) {
+        this.content = content;
+    }
+    public String getDate() {
+        return this.date;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
+    public String[] getHashTag() {
+        return this.hashTag;
+    }
+    public void setHashTag(String[] hashTag) {
+        this.hashTag = hashTag;
+    }
+    public String getPersonId() {
+        return this.personId;
+    }
+    public void setPersonId(String personId){
+        this.personId = personId;
+    }
     public People getPeople() {
-        return p;
+        return people;
     }
     public void setPeople(People p) {
-        this.p = p;
+        this.people = p;
     }
     @Override
     public String toString() {
