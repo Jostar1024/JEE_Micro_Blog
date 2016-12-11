@@ -10,5 +10,6 @@ public interface PeopleRepository extends MongoRepository<People, String> {
 
     People findByFirstName(String firstName);
     List<People> findByLastName(String lastName);
+    People findById(String Id);
 
 }

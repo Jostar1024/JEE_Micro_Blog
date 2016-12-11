@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by caoych on 2016/12/10.
@@ -13,35 +15,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
+    @Autowired
+    private PeopleRepository pRepo;
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-//    @Override
-//    public void run(String... args) throws Exception {
-//
-//        repo.deleteAll();
-//
-//        repo.save(new People("Amy","A"));
-//        repo.save(new People("Bob", "B"));
-//
-//        // fetch all customers
-//        System.out.println("Customers found with findAll():");
-//        System.out.println("-------------------------------");
-//        for (People p : repo.findAll()) {
-//            System.out.println(p);
-//        }
-//        System.out.println();
-//
-//        // fetch an individual customer
-//        System.out.println("Customer found with findByFirstName('Alice'):");
-//        System.out.println("--------------------------------");
-//        System.out.println(repo.findByFirstName("Amy"));
-//
-//        System.out.println("Customers found with findByLastName('Smith'):");
-//        System.out.println("--------------------------------");
-//        for (People p : repo.findByLastName("B")) {
-//            System.out.println(p);
-//        }
+//    @RequestMapping("/")
+//    public void visit(Model model) {
+//        pRepo.deleteAll();
+//        model.addAttribute("name2", "caoych");
 //    }
 }

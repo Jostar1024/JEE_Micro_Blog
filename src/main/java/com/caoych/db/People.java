@@ -9,14 +9,36 @@ public class People {
     @Id
     public String id;
 
-    public String firstName;
-    public String lastName;
+    private String firstName;
+    private String lastName;
+
+    private String passwd;
 
     public People() {}
 
-    public People(String firstName, String lastName) {
+    public People(String firstName, String lastName, String passwd) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.passwd = passwd;
+    }
+    public String getFirstName() {
+        return this.firstName;
+    }
+    public void setFirstName(String new_firstName) {
+        this.firstName = new_firstName;
+    }
+    public String getLastName() {
+        return this.lastName;
+    }
+    public void setLastName(String new_lastName) {
+        this.lastName = new_lastName;
+    }
+    public String getPasswd() {
+        return this.passwd;
+    }
+
+    public void setPasswd(String new_passwd){
+        this.passwd = new_passwd;
     }
 
     @Override

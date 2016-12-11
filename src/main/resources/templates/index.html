@@ -2,10 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Micro Blog d'Electronie</title>
+    <title>Micro Blog de lingua</title>
 </head>
 <body>
-    <p th:text="'Hello ' + ${name} + '!'">Hello shabi</p>
+    <!--<p th:text="'Hello, ' + ${tweets} + '!'"></p>-->
+    <div th:replace="fragments/sidebar :: sidebar" ></div>
+    <div>
+        <div th:each="tweet : ${tweets}">
+            <p th:text="${tweet.content}"></p>
+            <p th:text="${tweet.date}"></p>
+            <p th:text="${tweet.p}"></p>
+            <p th:each=" hashtag : ${tweet.hashTag}" th:remove="tag">
+                <a th:text="${hashtag}" th:href="'hashtag?hashtag='+${hashtag} "></a>
+            </p>
+        </div>
+    </div>
     <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
 </body>
 </html>
