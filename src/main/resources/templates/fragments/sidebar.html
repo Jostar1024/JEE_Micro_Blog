@@ -4,22 +4,28 @@
     <meta charset="UTF-8"/>
 </head>
 <body>
-    <div th:fragment="sidebar" class="sidebar pure-u-1 pure-u-md-1-4" >
-        <div class="header">
-            <h1 class="brand-title">A Sample Blog</h1>
-            <h2 class="brand-tagline">Creating a blog layout using Pure</h2>
+<div th:fragment="sidebar" class="sidebar pure-u-1 pure-u-md-1-4" >
+    <div class="header">
+        <h1 class="brand-title"><a href="index.html">Micro Blog interne</a></h1>
+        <h2 class="brand-tagline">Microblog interne montrant avec citation...</h2>
 
-            <nav class="nav">
-                <ul class="nav-list">
-                    <!--<li class="nav-item">-->
-                        <!--<a class="pure-button" href="http://purecss.io">Pure</a>-->
-                    <!--</li>-->
-                    <li class="nav-item">
-                        <a class="pure-button" href="http://yuilibrary.com"><a th:href="@{/hello}">Login</a></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+
+                <li class="nav-item" th:if="${#httpServletRequest.remoteUser}==null">
+                    <a th:href="@{/hello}" class="pure-button">Login</a>
+                </li>
+                <li class="nav-item" th:if="${#httpServletRequest.remoteUser}!=null">
+                    <a th:href="'edit_profile?firstName='+${#httpServletRequest.remoteUser}" class="pure-button">Edit Profile</a>
+                </li>
+                <li class="nav-item" th:if="${#httpServletRequest.remoteUser}!=null">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out" class="pure-button"/>
+                    </form>
+                </li>
+            </ul>
+        </nav>
     </div>
+</div>
 </body>
 </html>
