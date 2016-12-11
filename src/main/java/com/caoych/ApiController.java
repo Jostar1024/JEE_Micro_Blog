@@ -24,13 +24,25 @@ public class ApiController {
     @Autowired
     private TweetsRepository tRepo;
 
+    @RequestMapping("/people")
+    public List<People> getPeople() {
+        return pRepo.findAll();
+    }
+
     @RequestMapping("/people/{firstName}")
     public People getPeople(@PathVariable String firstName) {
         return pRepo.findByFirstName(firstName);
+    }
+
+    @RequestMapping("/tweets")
+    public List<Tweets> getTweets() {
+        return tRepo.findAll();
     }
 
     @RequestMapping("/tweets/{hashTag}")
     public List<Tweets> getTweet(@PathVariable String hashTag) {
         return tRepo.findByHashTag(hashTag);
     }
+
+
 }
