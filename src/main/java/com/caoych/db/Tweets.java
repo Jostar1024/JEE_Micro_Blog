@@ -59,8 +59,8 @@ public class Tweets {
     @Override
     public String toString() {
         return String.format(
-                "Tweet : [id = %s, content = %s, date = %s, hashTag = %s",
-                id, content, date, Arrays.toString(hashTag)
+                "Tweet : [id = %s, content = %s, date = %s, hashTag = %s, personId = %s",
+                id, content, date, Arrays.toString(hashTag), personId
         );
     }
 

@@ -32,15 +32,13 @@ public class PostTweetController {
             firstName = principal.getName();
         }
         Tweets post_message= new Tweets();
-        post_message.setPersonId(pRepo.findByFirstName(firstName).id);
+//        post_message.setPersonId(pRepo.findByFirstName(firstName).id);
         model.addAttribute("post_message", post_message);
-        System.out.println(post_message.toString());
-        System.out.println(model);
         return "post_tweet";
     }
 
     @PostMapping("/post_tweet")
-    public String postTweet(@ModelAttribute("post_message") Tweets post_message) {
+    public String postTweet(@ModelAttribute("post_message") Tweets post_message, @ModelAttribute("principal") String firstName) {
 
         post_message.setHashTag(new String[] {"new"});
         post_message.setDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
