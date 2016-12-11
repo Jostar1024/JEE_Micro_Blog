@@ -1,4 +1,4 @@
-package com.caoych;
+package com.caoych.controller;
 
 import com.caoych.db.People;
 import com.caoych.db.PeopleRepository;

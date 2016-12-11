@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>HashTag</title>
 </head>
 <body>
-    <p>This is the hashtag page</p>
+    <p th:text="${list_tweets_by_hashtag}"></p>
 </body>
 </html>
