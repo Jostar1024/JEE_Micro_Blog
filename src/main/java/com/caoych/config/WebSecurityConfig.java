@@ -13,6 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private mongoUserDetailService mongoUser;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -31,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-        auth
+        auth.userDetailsService(mongoUser).and()
                 .inMemoryAuthentication()
                     .withUser("user").password("password").roles("USER");
     }
