@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Post a tweet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Micro Blog de Lingua</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-old-ie-min.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-min.css"/>
+    <!--<![endif]-->
+
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/blog-old-ie.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/css/blog.css"/>
+    <!--<![endif]-->
+
+</head>
+<body>
+    <div id="layout" class="pure-g">
+
+
+        <div th:replace="fragments/sidebar :: sidebar" ></div>
+
+        <div class="content pure-u-1 pure-u-md-3-4">
+
+            <div class="posts" >
+                <h1 class="content-subhead">Recent Posts</h1>
+                <h1 th:if="${#httpServletRequest.remoteUser}!=null" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+                <div>
+                    <form class="pure-form pure-form-stacked" th:action="@{/post_tweet}" method="POST" th:object="${post_message}">
+                            <textarea class="form-control" th:field="${post_message.content}">
+                            </textarea>
+                        <input type="submit" value="Say it !!" class="pure-button pure-button-primary"/>
+                        <p th:text="${principal}"></p>
+                        <!--<p th:with="*{tweet.p.firstName}=${#httpServletRequest.remoteUser}"></p>-->
+                        <p>Say it on :
+                            <button value="twitter" class="btn btn-social-icon btn-s btn-twitter"><span class="fa fa-twitter"></span></button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
