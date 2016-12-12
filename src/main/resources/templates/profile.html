@@ -3,8 +3,40 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Profile of </title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-old-ie-min.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-min.css"/>
+    <!--<![endif]-->
+
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/blog-old-ie.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/css/blog.css"/>
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="css/font-awesome.css"/>
 </head>
 <body>
-    <p th:text="${ones_profile}"></p>
+    <div id="layout" class="pure-g">
+        <div th:replace="fragments/sidebar :: sidebar" ></div>
+        <div class="content pure-u-1 pure-u-md-3-4">
+                    <div class="pure-control-group"><label for="firstName"> First Name :</label>
+                        <input id="firstName" type="text" name="username" placeholder="First Name" th:field="${ones_profile.firstName}" />
+                    </div>
+                    <div class="pure-control-group" for="lastName"><label> Last Name :</label>
+                        <input id="lastName" type="text" name="password" placeholder="Last Name" th:field="${ones_profile.lastName}" />
+                    </div>
+        </div>
+    </div>
+
+    <!--<p th:text="${ones_profile}"></p>-->
 </body>
 </html>

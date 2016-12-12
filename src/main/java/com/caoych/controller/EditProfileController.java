@@ -38,6 +38,6 @@ public class EditProfileController {
         mongoOperations.updateFirst(
                 new Query(Criteria.where("firstName").is(people.getFirstName())),
                 Update.update("passwd", people.getPasswd()), People.class);
-        return "index";
+        return "edit_profile";
     }
 }

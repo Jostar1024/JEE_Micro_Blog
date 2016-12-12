@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Login Page</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-old-ie-min.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-min.css"/>
+    <!--<![endif]-->
+
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/blog-old-ie.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/css/blog.css"/>
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="css/font-awesome.css"/>
 </head>
 <body>
     <div th:if="${param.error}">
@@ -11,11 +31,16 @@
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
-    <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
-    </form>
-    <a th:href="@{/create_profile}" th:text="'No account? Creat your own !'"></a>
+    <div id="layout" class="pure-g">
+        <div th:replace="fragments/sidebar :: sidebar" ></div>
+        <div class="content pure-u-1 pure-u-md-3-4">
+        <form th:action="@{/login}" method="post">
+            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Sign In"/></div>
+        </form>
+        <a th:href="@{/create_profile}" th:text="'No account? Creat your own !'"></a>
+        </div>
+    </div>
 </body>
 </html>

@@ -36,6 +36,18 @@ public class IndexController {
 
         return "index";
     }
+
+    @RequestMapping("/index")
+    public  String index2(String name, Model model) {
+        init_db();
+        List<Tweets> lt= tRepo.findAll();
+        for ( Tweets t: lt) {
+            People p = pRepo.findById(t.personId);
+            t.setPeople(p);
+        }
+        model.addAttribute("tweets", lt);
+        return "index";
+    }
     private void init_db() {
         pRepo.deleteAll();
         tRepo.deleteAll();

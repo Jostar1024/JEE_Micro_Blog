@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>Edit your profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-old-ie-min.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-min.css"/>
+    <!--<![endif]-->
+
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/blog-old-ie.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/css/blog.css"/>
 </head>
 <body>
-<h1>This is the edit_profile page</h1>
+<div id="layout" class="pure-g">
+    <div th:replace="fragments/sidebar :: sidebar" ></div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <form action="#" th:action="'edit_profile?firstName='+${people.firstName}" th:object="${people}" method="POST" class="pure-form pure-form-aligned">
+            <fieldset>
+                <div class="pure-control-group"><label for="firstName"> First Name :</label>
+                    <input id="firstName" type="text" name="username" placeholder="First Name" th:field="*{firstName}" />
+                </div>
+                <div class="pure-control-group" for="lastName"><label> Last Name :</label>
+                    <input id="lastName" type="text" name="password" placeholder="Last Name" th:field="*{lastName}" />
+                </div>
+                <div class="pure-control-group" for="password"><label> Password :</label>
+                    <input id="password" type="password" name="password" placeholder="Password" th:field="*{passwd}" />
+                </div>
+                <div class="pure-controls">
+                    <input type="submit" value="Save" class="pure-button pure-button-primary"/>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
 </body>
 </html>

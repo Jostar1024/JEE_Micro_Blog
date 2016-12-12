@@ -2,29 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Hello </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-old-ie-min.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/grids-responsive-min.css"/>
+    <!--<![endif]-->
+
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/blog-old-ie.css"/>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/css/blog.css"/>
 </head>
 <body>
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-    <form>
-        <textarea>
-        </textarea>
-        <input type="submit" value="Say it !!"/>
-        <p>Say it on :
-            <button value="twitter"></button>
-        </p>
-
-    </form>
-    <ul>
-        <li>
-            <a href="edit_profile.html"></a>
-        </li>
-        <li>
-            <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Sign Out"/>
-            </form>
-        </li>
-    </ul>
+<div id="layout" class="pure-g">
+    <div th:replace="fragments/sidebar :: sidebar" ></div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <h1>Welcome ! </h1>
+    </div>
+</div>
 
 </body>
 </html>
